@@ -25,6 +25,7 @@ case class GameInstance(logicController: LogicControllerInterface, userControlle
         // is the figure on the choosed field of this colour?
 
 //        logicController.cellContentBlack(x, y)
+        false
       } else true
 
     }
