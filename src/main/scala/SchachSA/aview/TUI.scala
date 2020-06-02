@@ -1,4 +1,4 @@
-package SchachSA.view
+package SchachSA.aview
 
 import SchachSA.controllerComponent.InstanceControllerInterface
 import SchachSA.controllerComponent.CellChanged

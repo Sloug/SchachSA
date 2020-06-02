@@ -8,9 +8,9 @@ import de.htwg.se.Schach.controller.controllerComponent.LogicControllerInterface
 import de.htwg.se.Schach.model.fieldComponent.fieldBaseImpl.Field
 
 
-case class GameInstance(logicController: LogicControllerInterface, userController: UserControllerInterface) extends FullGameInstanceInterface {
-  def this() = this(new LogicController(new Field()), new UserController())
-  def this(nameWhite: String, nameBlack: String) = this(new LogicController(new Field()), new UserController(nameWhite, nameBlack))
+case class GameInstance(logicController: LogicControllerHttpClient, userController: UserControllerHttpClient) extends FullGameInstanceInterface {
+  def this() = this( new LogicControllerHttpClient, new UserControllerHttpClient)
+//  def this(nameWhite: String, nameBlack: String) = this(new LogicController(new Field()), new UserController(nameWhite, nameBlack))
 
   var previousSelection: Option[(Int, Int)] = Option.empty
   override def newGame: Unit = logicController.newField

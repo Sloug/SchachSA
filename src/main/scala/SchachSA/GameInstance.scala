@@ -1,14 +1,14 @@
 package SchachSA
 
 import SchachSA.controllerComponent.controllerBaseImpl.Controller
-import SchachSA.view.TUI
-import SchachSA.view.gui.SwingGui
+import SchachSA.aview.TUI
+import SchachSA.aview.gui.SwingGui
 import de.htwg.se.Schach.controller.controllerComponent.CellChanged
 
 import scala.io.StdIn.readLine
 
 object GameInstance {
-  val controller = new Controller("Weiss", "Schwarz")
+  val controller = new Controller
   val tui = new TUI(controller)
   val gui = new SwingGui(controller)
   controller.publish(new CellChanged)

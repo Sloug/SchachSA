@@ -8,7 +8,7 @@ import SchachSA.controllerComponent.CellChanged
 import scala.swing.Publisher
 
 case class Controller(gameInstance: FullGameInstanceInterface) extends InstanceControllerInterface with Publisher {
-  def this(nameWhite: String, nameBlack: String) = this(new GameInstance(nameWhite, nameBlack))
+  def this() = this(new GameInstance)
 
   override def select(x: Int, y: Int): Boolean = {
     val tmp = gameInstance.select(x, y)
