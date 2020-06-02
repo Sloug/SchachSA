@@ -10,9 +10,8 @@ import akka.http.scaladsl.unmarshalling._
 import akka.http.scaladsl.client.RequestBuilding._
 import akka.stream.ActorMaterializer
 import de.heikoseeberger.akkahttpplayjson.PlayJsonSupport
-import play.api.libs.json.{JsValue, Json}
 
-import scala.concurrent.{Await, ExecutionContextExecutor, Future}
+import scala.concurrent.{Await, ExecutionContextExecutor}
 import scala.concurrent.duration.Duration
 
 case class LogicControllerHttpClient(logicControllerServerAddress: String) extends PlayJsonSupport {
