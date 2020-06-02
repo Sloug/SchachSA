@@ -1,3 +1,3 @@
-package SchachSA.view.gui
+package SchachSA.aview.gui
 
 case class FieldGuiForwarderSpec()
