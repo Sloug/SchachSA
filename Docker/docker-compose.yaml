@@ -3,15 +3,11 @@ version: "2"
 services:
   schach:
     image: schach:01
-    ports:
-      - "9090:9090"
     expose:
       - "9090"
   schachuser:
     image: schachuser:01
     depends_on:
       - schach
-    ports:
-      - "7070:7070"
     expose:
       - "7070"
