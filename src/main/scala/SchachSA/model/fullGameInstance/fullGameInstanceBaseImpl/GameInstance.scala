@@ -1,16 +1,10 @@
 package SchachSA.model.fullGameInstance.fullGameInstanceBaseImpl
 
 import SchachSA.model.fullGameInstance.FullGameInstanceInterface
-import SchachUser.controller.controllerComponent.UserControllerInterface
-import SchachUser.controller.controllerComponent.controllerBaseImpl.UserController
-import de.htwg.se.Schach.controller.controllerComponent.controllerBaseImpl.LogicController
-import de.htwg.se.Schach.controller.controllerComponent.LogicControllerInterface
-import de.htwg.se.Schach.model.fieldComponent.fieldBaseImpl.Field
 
 
 case class GameInstance(logicController: LogicControllerHttpClient, userController: UserControllerHttpClient) extends FullGameInstanceInterface {
   def this() = this( new LogicControllerHttpClient, new UserControllerHttpClient)
-//  def this(nameWhite: String, nameBlack: String) = this(new LogicController(new Field()), new UserController(nameWhite, nameBlack))
 
   var previousSelection: Option[(Int, Int)] = Option.empty
   override def newGame: Unit = logicController.newField
