@@ -45,6 +45,12 @@ class SwingGui(controller: InstanceControllerInterface) extends Frame {
       contents += new MenuItem(Action("New") {
         controller.restart
       })
+      contents += new MenuItem(Action("Save") {
+        controller.saveField
+      })
+      contents += new MenuItem(Action("Load") {
+        controller.loadField
+      })
       contents += new MenuItem(Action("Quit") {
         sys.exit(0)
       })
