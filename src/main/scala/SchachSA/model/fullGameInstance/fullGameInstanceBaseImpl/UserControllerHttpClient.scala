@@ -38,4 +38,16 @@ case class UserControllerHttpClient(userControllerServerAddress: String) extends
     val future = response.flatMap(r => Unmarshal(r.entity).to[String])
     Await.result(future, Duration(1, TimeUnit.SECONDS))
   }
+
+  def save = {
+    Http().singleRequest(Post(uri = Uri(userSection + "save")))
+  }
+
+  def load = {
+    Http().singleRequest(Post(uri = Uri(userSection + "load")))
+  }
+
+  def restartGame = {
+    Http().singleRequest(Post(uri = Uri(userSection + "restartGame")))
+  }
 }

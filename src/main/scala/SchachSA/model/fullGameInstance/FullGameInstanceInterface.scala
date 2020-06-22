@@ -13,9 +13,9 @@ trait FullGameInstanceInterface {
 
   def redo: Unit
 
-  def saveField: Unit
+  def save: Unit
 
-  def loadField: Unit
+  def load: Unit
 
   def getChangeableFigures: String
 

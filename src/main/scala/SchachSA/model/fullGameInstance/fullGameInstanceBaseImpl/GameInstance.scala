@@ -60,7 +60,10 @@ case class GameInstance(logicController: LogicControllerHttpClient, userControll
     } else false
   }
 
-  override def restart: Unit = logicController.newField
+  override def restart: Unit = {
+    logicController.newField
+    userController.restartGame
+  }
 
   override def undo: Unit = {
     userController.undoRound
@@ -72,11 +75,15 @@ case class GameInstance(logicController: LogicControllerHttpClient, userControll
     logicController.redo
   }
 
-  //does not work, since user is not safed
-  override def saveField: Unit = logicController.save
+  override def save: Unit = {
+    logicController.save
+    userController.save
+  }
 
-  //does not work, since user is not safed
-  override def loadField: Unit = logicController.load
+  override def load: Unit = {
+    logicController.load
+    userController.load
+  }
 
   override def getChangeableFigures: String = logicController.getChangeableFigures
 
