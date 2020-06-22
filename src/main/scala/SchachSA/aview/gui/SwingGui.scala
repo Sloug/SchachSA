@@ -2,27 +2,25 @@ package SchachSA.aview.gui
 
 import SchachSA.controllerComponent.InstanceControllerInterface
 import SchachSA.controllerComponent.CellChanged
-import de.htwg.se.Schach.model.fieldComponent.fieldBaseImpl.Field
 import javax.swing.{Icon, JOptionPane, UIManager, WindowConstants}
 
 import scala.swing.Swing.{EmptyIcon, LineBorder}
 import scala.swing._
 import scala.swing.event._
 
-class CellClicked(val row: Int, val column: Int) extends Event
-
 class SwingGui(controller: InstanceControllerInterface) extends Frame {
+  val SIZE = 8
   listenTo(controller)
   peer.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE)
   title = "HTWG Schach"
 
-  var cells = Array.ofDim[CellPanel](Field.SIZE, Field.SIZE)
+  var cells = Array.ofDim[CellPanel](SIZE, SIZE)
 
-  def gridPanel: GridPanel = new GridPanel(Field.SIZE, Field.SIZE) {
+  def gridPanel: GridPanel = new GridPanel(SIZE, SIZE) {
     border = LineBorder(java.awt.Color.BLACK, 2)
     for {
-      outerRow <- 0 until Field.SIZE
-      outerColumn <- 0 until Field.SIZE
+      outerRow <- 0 until SIZE
+      outerColumn <- 0 until SIZE
     } {
       val row = outerRow
       val col = outerColumn
@@ -44,6 +42,12 @@ class SwingGui(controller: InstanceControllerInterface) extends Frame {
       mnemonic = Key.F
       contents += new MenuItem(Action("New") {
         controller.restart
+      })
+      contents += new MenuItem(Action("Save") {
+        controller.saveField
+      })
+      contents += new MenuItem(Action("Load") {
+        controller.loadField
       })
       contents += new MenuItem(Action("Quit") {
         sys.exit(0)
@@ -68,8 +72,8 @@ class SwingGui(controller: InstanceControllerInterface) extends Frame {
 
   def redraw = {
     for {
-      row <- 0 until Field.SIZE
-      column <- 0 until Field.SIZE
+      row <- 0 until SIZE
+      column <- 0 until SIZE
     } cells(row)(column).redraw
     val tmp = controller.pawnPromoting
     if (tmp.isDefined) {

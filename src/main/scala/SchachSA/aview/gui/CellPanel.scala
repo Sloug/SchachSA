@@ -1,15 +1,12 @@
 package SchachSA.aview.gui
 
-import SchachSA.controllerComponent.InstanceControllerInterface
-import de.htwg.se.Schach.controller.controllerComponent.CellChanged
+import SchachSA.controllerComponent.{CellChanged, InstanceControllerInterface}
 
 import scala.swing.Swing.LineBorder
 import scala.swing._
 import scala.swing.event._
 
 class CellPanel(row: Int, column: Int, controller: InstanceControllerInterface) extends FlowPanel {
-
-//  def myCell = controller.cell(row, column)
 
   def cellText(row: Int, col: Int) = controller.cellContains(row, col)
 

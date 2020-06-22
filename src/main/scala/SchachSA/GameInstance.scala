@@ -3,9 +3,10 @@ package SchachSA
 import SchachSA.controllerComponent.controllerBaseImpl.Controller
 import SchachSA.aview.TUI
 import SchachSA.aview.gui.SwingGui
-import de.htwg.se.Schach.controller.controllerComponent.CellChanged
+import SchachSA.controllerComponent.CellChanged
 
 import scala.io.StdIn.readLine
+
 
 object GameInstance {
   val controller = new Controller

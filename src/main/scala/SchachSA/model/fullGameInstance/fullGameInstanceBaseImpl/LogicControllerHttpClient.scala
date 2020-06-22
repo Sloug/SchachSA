@@ -20,8 +20,9 @@ case class LogicControllerHttpClient(logicControllerServerAddress: String) exten
   implicit val materializer: ActorMaterializer = ActorMaterializer()
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
   val logicSection = logicControllerServerAddress + "/logic/"
-  def newField: Unit = {
 
+  def newField: Unit = {
+    Http().singleRequest(Delete(uri = Uri(logicSection + "newField")))
   }
 
   def cellContentBlack(x: Int, y: Int): Option[Boolean] = {

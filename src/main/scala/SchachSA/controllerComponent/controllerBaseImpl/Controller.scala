@@ -39,13 +39,13 @@ case class Controller(gameInstance: FullGameInstanceInterface) extends InstanceC
 
   //does not work, since user is not safed
   override def saveField: Unit = {
-    gameInstance.saveField
+    gameInstance.save
     publish(new CellChanged)
   }
 
   //does not work, since user is not safed
   override def loadField: Unit = {
-    gameInstance.loadField
+    gameInstance.load
     publish(new CellChanged)
   }
 
