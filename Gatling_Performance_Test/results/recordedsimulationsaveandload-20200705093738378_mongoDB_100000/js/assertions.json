@@ -1,0 +1,10 @@
+{
+  "simulation": "chess.RecordedSimulationSaveAndLoad",
+  "simulationId": "recordedsimulationsaveandload",
+  "start": 1593941858378,
+  "description": "",
+  "scenarios": ["RecordedSimulationSaveAndLoad"],
+  "assertions": [
+
+  ]
+}

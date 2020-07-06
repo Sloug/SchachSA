@@ -1,0 +1,10 @@
+        save!
+count   mongoDB             mysql
+500
+2000
+7000                        fail 4%
+8000                        fail 1%
+9000    fail 4%             fail 5%
+10000   fail 2%             fail 11%
+20000   fail 13%            fail 13%
+100000  fail 84%(96/72)     fail 83%(95/70)
