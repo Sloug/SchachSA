@@ -17,6 +17,6 @@ RUN apt-get update
 RUN apt-get install sbt -y --allow-unauthenticated
 
 RUN git clone https://github.com/Sloug/SchachUser.git
-RUN cd /SchachUser && git pull && git checkout -t origin/mongoDB && sbt compile
+RUN cd /SchachUser && git pull && git checkout -t origin/Futures && sbt compile
 
 ENTRYPOINT mongod --fork --config /etc/mongod.conf && service mysql start && cd /SchachUser && PASSWORD=$(cat /etc/mysql/debian.cnf | grep "password"| head -1 | sed -n -e 's/^.*= //p') sbt run
